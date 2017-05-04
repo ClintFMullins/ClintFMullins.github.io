@@ -12,10 +12,10 @@ cx.Board = function(opts) {
 };
 
 cx.Board.prototype.DEFAULTS = {
-  width:       500,
-  height:      500,
-  rowCount:    20,
-  columnCount: 20
+  width:       1000,
+  height:      1000,
+  rowCount:    50,
+  columnCount: 50
 };
 
 cx.Board.prototype.oneCycle = function() {
