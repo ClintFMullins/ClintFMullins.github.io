@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    background: black;
+}
+body {
+    margin: 0;
+}
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row {
+    width: 20px;
+    height: 20px;
+    background: black;
+    transition: 8s height ease-in-out
+}
+
+.row:hover {
+  height: 100%;
+  transition: 0.1s height ease-in-out
+}
