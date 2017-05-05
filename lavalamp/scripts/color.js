@@ -2,7 +2,7 @@ var cx = cx || {};
 cx.color = {};
 
 cx.color.CIRCLE_DEGREES = 360;
-cx.color.INFLUENCE_VELOCITY = 10;
+cx.color.INFLUENCE_VELOCITY = 20;
 
 cx.color.getCircleAverage = function(hues) {
   if (!hues.length) {

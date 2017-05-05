@@ -1,5 +1,5 @@
 var cx = cx || {};
- 
+
 cx.Game = function() {
   this.board = new cx.Board();
 };
@@ -13,5 +13,5 @@ $(function() {
   game.initialize();
   setInterval(function() {
     game.board.oneCycle();
-  },0)
+  }, 0)
 });

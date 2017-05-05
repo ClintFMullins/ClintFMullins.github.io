@@ -161,10 +161,17 @@
   <script type="text/javascript" src="colorsounds/tone.js"></script>
   <script type="text/javascript">
     (function() {
-      const synth = new Tone.Synth().toMaster();
-      var polySynth = new Tone.PolySynth(4, Tone.Synth).toMaster();
+      var choices = [
+        'AMSynth',
+        'DuoSynth',
+        'MembraneSynth',
+        'PluckSynth',
+      ];
+
+      const randomChoiceIndex = Math.floor(Math.random() * choices.length);
+      var instrument = new Tone.PolySynth(4, Tone[choices[randomChoiceIndex]]).toMaster();
       const notes = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-      const octaves = ['1', '2', '3', '4', '5'];
+      const octaves = ['0', '1', '2'];
 
       function random(seed) {
         var x = Math.sin(seed) * 10000;
@@ -178,13 +185,13 @@
       function playRandomNote(seed) {
         let chord = new Array(2)
         chord.fill(`${chooseRandom(notes, seed)}${chooseRandom(octaves, seed)}`)
-        polySynth.triggerAttackRelease(chord, "8n");
+        instrument.triggerAttackRelease(chord, "8n");
       }
 
       function holdRandomNote(seed) {
         let chord = new Array(2)
         chord.fill(`${chooseRandom(notes, seed)}${chooseRandom(octaves, seed)}`)
-        polySynth.triggerAttack(chord, "8n");
+        instrument.triggerAttack(chord, "8n");
       }
 
       Array.from(document.getElementsByClassName('row')).forEach((element, index) => {

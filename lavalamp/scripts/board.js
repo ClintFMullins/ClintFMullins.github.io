@@ -8,7 +8,30 @@ cx.Board = function(opts) {
   this.height = opts.height;
   this.squareWidth = this.width / this.columnCount;
   this.squareHeight = this.height / this.rowCount;
+  this.$canvas = $('#game-canvas');
+  this.$canvas.attr('width', this.width);
+  this.$canvas.attr('height', this.height);
   this.grid = this.createGrid();
+  this.hue = 0;
+  this.$body = $('body');
+  this.$canvas.on('click', (event) => {
+    var canvasX = event.offsetX;
+    var canvasY = event.offsetY;
+    var columnIndex = Math.floor((canvasX * this.columnCount) / this.width);
+    var rowIndex = Math.floor((canvasY * this.rowCount) / this.height);
+    var square = this.grid[rowIndex][columnIndex];
+
+    if (event.ctrlKey) {
+      console.log('steal')
+      this.hue = square.hue[0];
+      this.$body.css({ background: 'hsl(' + this.hue + ', 100%, 80%)' })
+      return;
+    }
+    console.log(this.hue)
+    square.queueAttribute("hue", this.hue);
+    square.nextAttribute("hue");
+    square.counter = 10000;
+  });
 };
 
 cx.Board.prototype.DEFAULTS = {
@@ -24,6 +47,9 @@ cx.Board.prototype.oneCycle = function() {
       var currentSquare = this.grid[rowIndex][columnIndex];
       var adjacentSquares = this.getAdjacent(rowIndex, columnIndex);
       this.queueSquareHue(currentSquare, adjacentSquares);
+      if (currentSquare.counter) {
+        continue;
+      }
       currentSquare.nextAttribute("hue");
     }
   }
@@ -33,6 +59,11 @@ cx.Board.prototype.oneCycle = function() {
 cx.Board.prototype.queueSquareHue = function(square, adjacentSquares) {
   var averageColor = cx.color.getCircleAverage(adjacentSquares.listAttribute("hue"));
   var nextColorForSquare = cx.color.getInfluencedHue(square.getAttribute("hue"), averageColor);
+  if (square.counter && square.counter > 0) {
+    square.counter--;
+    return;
+  }
+
   square.queueAttribute("hue", nextColorForSquare);
 };
 
@@ -59,10 +90,7 @@ cx.Board.prototype.createGrid = function() {
 };
 
 cx.Board.prototype.drawGrid = function() {
-  var $canvas = $('#game-canvas');
-  $canvas.attr('width', this.width);
-  $canvas.attr('height', this.height);
-  var context = $canvas.get(0).getContext('2d');
+  var context = this.$canvas.get(0).getContext('2d');
   for (var rowIndex = 0; rowIndex < this.rowCount; rowIndex++) {
     for (var columnIndex = 0; columnIndex < this.columnCount; columnIndex++) {
       var currentSquare = this.grid[rowIndex][columnIndex];
