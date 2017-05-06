@@ -4,19 +4,75 @@
   <style>
     body {
       text-align: center;
+      background: black;
+      color: ghostwhite;
+      font-family: "Trebuchet MS", helvetica;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .item-wrapper {
+      width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .item {
+      height: 100px;
+    }
+
+    .item-title {
+      font-size: 75px;
+      transition: 0.2s linear all;
+      opacity: 0.5;
+    }
+
+    .item .item-desc {
+      opacity: 0;
+      transition: 0.2s linear all;
+    }
+
+    .item:hover .item-desc {
+      opacity: 1;
+    }
+
+    .item:hover .item-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <h2>
-    Hi. I'm Clint Mullins.
-  </h2>
-  <p>
-     I made these things. They don't do much but I'll likely make more of them. It's like... art, you know?
-  </p>
-
-  <h3>Things:</h3>
-  <div><a href="/lavalamp">lavalamp</a> - ctrl-click to get color. Click to place color.</div>
-  <div><a href="/colorsounds">colorsounds</a> - every refresh is new 'music'</div>
+  <div class="item-wrapper">
+    <a href="/lavalamp">
+      <div class="item" style="background:DarkSlateBlue;">
+        <div class="item-title">
+          lavalamp
+        </div>
+        <div class="item-desc">
+          click to put color.
+          <br />
+          [ctrl/cmd]-click to get color
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="item-wrapper">
+    <a href="/colorsounds">
+      <div class="item" style="background:SteelBlue;">
+        <div class="item-title">
+          colorsounds
+        </div>
+        <div class="item-desc">
+          hover for a short note
+          <br />
+          click for a long note
+        </div>
+      </div>
+    </a>
+  </div>
 </body>
 </html>
