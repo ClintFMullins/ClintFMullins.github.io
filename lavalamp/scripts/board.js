@@ -21,13 +21,12 @@ cx.Board = function(opts) {
     var rowIndex = Math.floor((canvasY * this.rowCount) / this.height);
     var square = this.grid[rowIndex][columnIndex];
 
-    if (event.ctrlKey) {
-      console.log('steal')
+    if (event.ctrlKey || event.metaKey) {
       this.hue = square.hue[0];
       this.$body.css({ background: 'hsl(' + this.hue + ', 100%, 80%)' })
       return;
     }
-    console.log(this.hue)
+
     square.queueAttribute("hue", this.hue);
     square.nextAttribute("hue");
     square.counter = 10000;
