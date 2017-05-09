@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>storytime</title>
     <style>
+      body {
+        background: black;
+      }
+
       .words {
         font-size: 4em;
         font-family: "Arial Black";
@@ -49,8 +53,9 @@
   </head>
   <body>
     <div class="words" style="background: black;color:white;"></div>
-
     <script src='storytime/soul.js' type="text/javascript"></script>
+    <script src='storytime/ragged.js' type="text/javascript"></script>
+    <script src='storytime/ghost.js' type="text/javascript"></script>
     <script type="text/javascript">
       (function() {
         const wordsContainer = document.getElementsByClassName('words')[0];
@@ -67,7 +72,7 @@
         function* textWordGenerator(story) {
           var index = 0;
           while(index < story.length) {
-              yield story[index++];
+            yield story[index++];
           }
         }
 
@@ -115,11 +120,19 @@
             .split(' ');
           return textWordGenerator(cleanedStory);
         }
+        const stories = [ soul, ragged, ghost ];
+        const storyChoice = stories[Math.floor(Math.random() * stories.length)];
 
-        let wordGen = getStory(soul);
-        queWord("Click for a story");
+        let wordGen = getStory(storyChoice);
+        queWord("Begin story");
 
-        document.body.addEventListener('click', () => {
+        let storyAutoreaderId = null;
+
+        const continueStory = (shouldClearInterval) => {
+          if (shouldClearInterval && storyAutoreaderId) {
+            clearInterval(storyAutoreaderId);
+          }
+
           const word = wordGen.next().value;
 
           if (word) {
@@ -128,6 +141,11 @@
             queWord('The End');
             wordGen = getStory(soul);
           }
+        };
+
+        document.body.addEventListener('click', continueStory.bind(this, true));
+        document.body.addEventListener('dblclick', () => {
+          storyAutoreaderId = setInterval(continueStory, 200);
         });
       })();
     </script>
