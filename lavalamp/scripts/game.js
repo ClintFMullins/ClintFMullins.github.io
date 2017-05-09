@@ -11,7 +11,10 @@ cx.Game.prototype.initialize = function() {
 $(function() {
   var game = new cx.Game();
   game.initialize();
-  setInterval(function() {
+
+  function gameCycleRecursionShiiiiit() {
     game.board.oneCycle();
-  }, 0)
+    requestAnimationFrame(gameCycleRecursionShiiiiit);
+  }
+  requestAnimationFrame(gameCycleRecursionShiiiiit);
 });
