@@ -170,6 +170,7 @@
 
       const randomChoiceIndex = Math.floor(Math.random() * choices.length);
       var instrument = new Tone.PolySynth(4, Tone[choices[randomChoiceIndex]]).toMaster();
+
       const notes = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
       const octaves = ['0', '1', '2'];
 
@@ -199,9 +200,27 @@
         element.addEventListener('click', holdRandomNote.bind(this, index));
       });
 
+      let heightMultiplier = 25;
+
+      instrument.volume.value = -10;
+
+      document.addEventListener('wheel', (event) => {
+        heightMultiplier = Math.min(
+          Math.max(
+            0,
+            heightMultiplier + (event.wheelDeltaY > 0 ? 1 : -1)
+          ),
+          200
+        );
+
+        instrument.volume.value = ((50 * heightMultiplier) / 200) - 30;
+        console.log('instrument.volume.value', instrument.volume.value)
+        console.log('heightMultiplier', heightMultiplier)
+      });
+
       setInterval(() => {
         Array.from(document.getElementsByClassName('row')).forEach((element) => {
-          element.style['min-height'] = `${Math.random() * 50 + 10}px`;
+          element.style['min-height'] = `${Math.random() * heightMultiplier + (heightMultiplier / 3)}px`;
         });
       }, 100);
     })();

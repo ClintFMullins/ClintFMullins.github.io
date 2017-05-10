@@ -18,8 +18,8 @@ body {
     justify-content: center;
 }
 .row {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     background: black;
     transition: 8s height ease-in-out
 }
