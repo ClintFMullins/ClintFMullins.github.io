@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>button</title>
+    <style>
+      body, html {
+        height: 100%;
+        background-color: LightYellow;
+        padding: 0;
+        margin: 0;
+      }
+
+      .the-button {
+        padding: 10px 35px;
+        background: cornflowerblue;
+        border: none;
+        color: ghostwhite;
+        font-family: monospace;
+        color: #fff;
+        background-color: #6496c8;
+        border-radius: 15px;
+        box-shadow: 0 5px #27496d;
+        font-size: 1.5em;
+        cursor: pointer;
+      }
+
+      .the-button:hover {
+
+      }
+
+      .the-button:disabled {
+        cursor: not-allowed;
+        background: red;
+        box-shadow: 0 5px darkred;
+      }
+
+      .button-wrapper {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transition: all linear 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-wrapper">
+      <button class="the-button">
+        Let's get started!
+      </button>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    const button = document.getElementsByClassName('the-button')[0];
+    const wrapper = document.getElementsByClassName('button-wrapper')[0];
+
+    const goodPhrases = [
+      'Let\'s do it!',
+      'Click here!',
+      'Over here, silly!',
+      'Get rich!',
+      'Get handsome!',
+      'Be your best you!',
+      'Buy buy buy!',
+    ];
+
+    const badPhrases = [
+      'Don\'t touch me',
+      'Buzz off',
+      'Do you think you understand this product?',
+      'Go outside',
+      'Do you need this?',
+      'Go click yourself',
+      'Rejection. For you.',
+      'Is your life this pointless?',
+      'Are we supposed to be friends?',
+      'Stop harrassing me.',
+      'Wow you have time on your hands.',
+    ];
+
+    function getPhrase(phrases) {
+      return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+
+    const generateRandomInRangeBounds = (element) => ({
+      x: (Math.random() * (document.body.clientWidth - element.clientWidth)).toFixed(),
+      y: (Math.random() * (document.body.clientHeight - element.clientHeight)).toFixed(),
+    });
+
+    const angryButton = () => {
+      button.disabled = true;
+      button.innerText = getPhrase(badPhrases);
+      document.body.style.backgroundColor = 'black'
+    }
+
+    const moveButton = () => {
+      const randomCoordinate = generateRandomInRangeBounds(wrapper);
+      wrapper.style.top = randomCoordinate.y + 'px';
+      wrapper.style.left = randomCoordinate.x + 'px';
+    }
+
+    const happyButton = () => {
+      button.disabled = false;
+      button.innerText = getPhrase(goodPhrases);
+      button.disabled = false;
+      document.body.style.backgroundColor = 'LightYellow'
+    }
+
+    const ohShit = () => {
+      angryButton();
+      setTimeout(() => {
+        moveButton();
+        setTimeout(() => {
+          happyButton();
+        }, 500);
+      }, 800);
+    }
+
+    button.addEventListener('mouseover', ohShit);
+    button.addEventListener('click', ohShit);
+  </script>
+</html>
