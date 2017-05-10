@@ -1,5 +1,4 @@
 const ragged = `
-  A Tale of the Ragged Mountains
 
      During the fall of the year 1827, while residing near
 Charlottesville, Virginia, I casually made the acquaintance of Mr
@@ -42,7 +41,7 @@ more than usual personal beauty, to that which I saw.  For many
 years past he had been attended by a physician, named Templeton--
 an old gentleman, perhaps seventy years of age--whom he had first
 encountered at Saratoga, and from whose attention, while there,
-he either received, or fancied that he received, great benefit. 
+he either received, or fancied that he received, great benefit.
 The result was that Bedloe, who was wealthy, had made an
 arrangement with Dr Templeton, by which the latter, in
 consideration of a liberal annual allowance, had consented to
@@ -105,10 +104,10 @@ to the mountains, and, about ten, entered a gorge which was
 entirely new to me.  I followed the windings of this pass with
 much interest.  The scenery which presented itself on all sides,
 although scarcely entitled to be called grand, had about it an
-indescribable and to me a delicious aspect of dreary desolation. 
+indescribable and to me a delicious aspect of dreary desolation.
 The solitude seemed absolutely virgin.  I could not help
 believing that the green sods and the grey rocks upon which I
-trod had been trodden never before by the foot of a human being. 
+trod had been trodden never before by the foot of a human being.
 So entirely secluded, and in fact inaccessible, except through a
 series of accidents, is the entrance of the ravine, that it is by
 no means impossible that I was the first adventurer--the very
@@ -164,13 +163,13 @@ steadily and complacently on my unknown way.
 oppressive closeness of the atmosphere, I seated myself beneath a
 tree.  Presently there came a feeble gleam of sunshine, and the
 shadow of the leaves of the tree fell faintly but definitely upon
-the grass.  At this shadow I gazed wonderingly for many minutes. 
-Its character stupefied me with astonishment.  I looked upward. 
+the grass.  At this shadow I gazed wonderingly for many minutes.
+Its character stupefied me with astonishment.  I looked upward.
 The tree was a palm.
      'I now rose hurriedly, and in a state of fearful agitation--
 for the fancy that I dreamed would serve me no longer.  I saw--I
 felt that I had perfect command of my senses--and these senses
-now brought to my soul a world of novel and singular sensation. 
+now brought to my soul a world of novel and singular sensation.
 The heat became all at once intolerable.  A strange odour loaded
 the breeze.  A low, continuous murmur, like that arising from a
 full, but gently flowing river, came to my ears, intermingled
@@ -213,14 +212,14 @@ weird trees of vast age; and here and there might be seen a field
 of rice, the thatched hut of a peasant, a tank, a stray temple, a
 gipsy camp, or a solitary graceful maiden taking her way, with a
 pitcher upon her head, to the banks of the magnificent river.
-     'You will say now, of course, that I dreamed; but not so. 
+     'You will say now, of course, that I dreamed; but not so.
 What I saw--what I heard--what I felt--what I thought--had about
 it nothing of the unmistakable idiosyncrasy of the dream.  All
 was rigorously self-consistent.  At first, doubting that I was
 really awake, I entered into a series of tests, which soon
 convinced me that I really was.  Now when one dreams, and, in the
 dream, suspects that he dreams, the suspicion never fails to
-confirm itself, and the sleeper is almost immediately aroused. 
+confirm itself, and the sleeper is almost immediately aroused.
 Thus Novalis errs not in saying that "we are near waking when we
 dream that we dream".  Had the vision occurred to me as I
 describe it, without my suspecting it as a dream, then a dream it
@@ -264,13 +263,13 @@ surrounded it.  They retreated, at first, before us.  They
 rallied, fought madly, and retreated again.  In the meantime we
 were borne far from the kiosk, and became bewildered and
 entangled among the narrow streets of tall, overhanging houses,
-into the recesses of which the sun had never been able to shine. 
+into the recesses of which the sun had never been able to shine.
 The rabble pressed impetuously upon us, harassing us with their
 spears, and overwhelming us with flights of arrows.  These latter
 were very remarkable, and resembled in some respects the writhing
 creese of the Malay.  They were made to imitate the body of a
-creeping serpent, and were long and black, with a poisoned barb. 
-One of them struck me upon the right temple.  I reeled and fell. 
+creeping serpent, and were long and black, with a poisoned barb.
+One of them struck me upon the right temple.  I reeled and fell.
 An instantaneous and dreadful sickness seized me.  I struggled--I
 gasped--I died.'
      'You will hardly persist now,' said I, smiling, 'that the
@@ -285,15 +284,15 @@ their sockets.  'Proceed!' he at length said hoarsely to Bedloe.
      'For many minutes,' continued the latter, 'my sole
 sentiment--my sole feeling--was that of darkness and nonentity,
 with the consciousness of death.  At length there seemed to pass
-a violent and sudden shock through my soul, as if of electricity. 
+a violent and sudden shock through my soul, as if of electricity.
 With it came the sense of elasticity and of light.  This latter I
-felt--not saw.  In an instant I seemed to rise from the ground. 
-But I had no bodily, no visible, audible, or palpable presence. 
+felt--not saw.  In an instant I seemed to rise from the ground.
+But I had no bodily, no visible, audible, or palpable presence.
 The crowd had departed.  The tumult had ceased.  The city was in
 comparative repose.  Beneath me lay my corpse, with the arrow in
 my temple, the whole head greatly swollen and disfigured.  But
-all these things I felt--not saw.  I took interest in nothing. 
-Even the corpse seemed a matter in which I had no concern. 
+all these things I felt--not saw.  I took interest in nothing.
+Even the corpse seemed a matter in which I had no concern.
 Volition I had none, but appeared to be impelled into motion, and
 flitted buoyantly out of the city, retracing the circuitous path
 by which I had entered it.  When I had attained that point of the

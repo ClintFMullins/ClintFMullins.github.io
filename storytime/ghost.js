@@ -1,7 +1,5 @@
 let ghost = `
 
-A Ghost Story
-
 I TOOK a large room, far up Broadway, in a huge
 old building whose upper stories had been
 wholly unoccupied for years, until I came. The
@@ -270,14 +268,14 @@ exclaimed:
 ever did occur! Why you poor blundering old
 fossil, you have had all your trouble for nothing
 -- you have been haunting a PLASTER CAST of your-
-self -- the real Cardiff Giant is in Albany! 
+self -- the real Cardiff Giant is in Albany!
 
 [Footnote by Twain: A fact. The original fraud
-was ingeniously and fraudfully duplicated, 
+was ingeniously and fraudfully duplicated,
 and exhibited in New York as the "only genuine"
 Cardiff Giant (to the unspeakable disgust of the
 owners of the real colossus) at the very same
-time that the latter was drawing crowds at a 
+time that the latter was drawing crowds at a
 museum in Albany.]
 
 Confound it, don't you know your own remains?"

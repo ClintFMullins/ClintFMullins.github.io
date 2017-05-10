@@ -1,7 +1,5 @@
 const soul = `
 
-THE SOUL OF MAN
-
 The chief advantage that would result from the establishment of
 Socialism is, undoubtedly, the fact that Socialism would relieve us
 from that sordid necessity of living for others which, in the
