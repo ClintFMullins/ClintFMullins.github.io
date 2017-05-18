@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        margin: 0;
+        background: black;
+        color: white;
+        overflow: hidden;
+        box-shadow: inset 0px 0px 300px 200px;
+      }
+
+      .put-your-shit-here {
+        opacity: 0.4;
+      }
+
+      .typed-stuff {
+        padding: 10px 30px;
+        width: 188px;
+        font-weight: 100;
+        font-family: cursive;
+      }
+
+      .typed-stuff-wrapper {
+        height: 100vh;
+        position: relative;
+      }
+
+      .typed-stuff-wrapper-inner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .thought {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typed-stuff-wrapper">
+      <div class="thought">
+      </div>
+      <div class="put-your-shit-here" style='position:absolute; top: 10px'>
+      </div>
+      <div class="typed-stuff-wrapper-inner">
+        <input class="typed-stuff" type="text" autofocus value="What are you thinking about?"></input>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const fetchURL = 'https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&explaintext=&origin=*&titles=';
+
+      const searchUrlWithTitle = (title) => {
+        return `${fetchURL}${title}`
+      }
+
+      function searchWithText(text) {
+        fetch(searchUrlWithTitle(text), {
+          method: 'GET',
+        }).then((response) => {
+          return response.json();
+        }).then((response) => {
+          getTextFromWiki(response);
+        });
+      }
+
+      function getTextFromWiki(wikiResponse) {
+        if (!wikiResponse.query) {
+          return;
+        }
+        const pages = wikiResponse.query.pages;
+
+        Object.keys(pages).forEach((pageKey) => {
+          let extract = pages[pageKey].extract;
+          if (extract) {
+            if (extract.includes('If this redirect is an incorrect capitalisation')) {
+              return;
+            }
+
+            extract = extract.slice(0, 2000);
+
+            const formattedInfo = `${shitInHere.innerText + extract}`.replace(/\s\s+/g, ' ').replace(/\n/g, " ");
+            shitInHere.innerText = formattedInfo;
+          }
+        });
+      }
+
+
+      const inputType = document.getElementsByClassName('typed-stuff')[0];
+      const shitInHere = document.getElementsByClassName('put-your-shit-here')[0];
+      const thought = document.getElementsByClassName('thought')[0];
+
+      scrollingShit = false;
+      const scrollShitUp = () => {
+        scrollingShit = true;
+        const topNum = parseInt(shitInHere.style.top, 10);
+        const heightNum = parseInt(shitInHere.clientHeight, 10);
+
+        if (Math.abs(topNum) < heightNum - (document.body.clientHeight / 1)) {
+          shitInHere.style.top = parseInt(shitInHere.style.top, 10) - 3 + "px";
+        }
+
+        requestAnimationFrame(scrollShitUp);
+      };
+
+      const doSearchWithText = (event) => {
+        if(event.keyCode == 32 || event.keyCode == 13) {
+          searchWithText(event.currentTarget.value);
+          thought.innerHTML = thought.innerHTML + event.currentTarget.value;
+          inputType.value = '';
+        } else if (event.keyCode == 8) {
+            // do nothing
+        } else {
+          if (!scrollingShit) {
+            scrollShitUp();
+            scrollingShit = true;
+          }
+        }
+      };
+
+      inputType.addEventListener('keyup', doSearchWithText);
+      inputType.addEventListener('blur', () => {
+        inputType.focus();
+        inputType.select();
+      });
+
+      inputType.addEventListener('focus', () => {
+        inputType.select();
+      });
+    </script>
+  </body>
+</html>

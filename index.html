@@ -43,64 +43,88 @@
       margin-bottom: 20px;
       opacity: 0.9;
     }
+
+    .items-wrapper {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0px 0px 400px 35px rgba(36,36,36,1);
+    }
   </style>
 </head>
 <body>
-  <div class="item-wrapper">
-    <a href="/lavalamp">
-      <div class="item" style="background:DarkSlateBlue;">
-        <div class="item-title">
-          lavalamp
+  <div class="items-wrapper">
+    <div class="item-wrapper">
+      <a href="/lavalamp">
+        <div class="item" style="background:DarkSlateBlue;">
+          <div class="item-title">
+            lavalamp
+          </div>
+          <div class="item-desc">
+            click to put color.
+            <br />
+            [ctrl/cmd]-click to get color
+          </div>
         </div>
-        <div class="item-desc">
-          click to put color.
-          <br />
-          [ctrl/cmd]-click to get color
+      </a>
+    </div>
+    <div class="item-wrapper">
+      <a href="/colorsounds">
+        <div class="item" style="background:SteelBlue;">
+          <div class="item-title">
+            colorsounds
+          </div>
+          <div class="item-desc">
+            hover over for noise
+            <br />
+            scroll to change the energy
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
-  <div class="item-wrapper">
-    <a href="/colorsounds">
-      <div class="item" style="background:SteelBlue;">
-        <div class="item-title">
-          colorsounds
+      </a>
+    </div>
+    <div class="item-wrapper">
+      <a href="/storytime">
+        <div class="item" style="background:lightsteelblue;">
+          <div class="item-title">
+            storytime
+          </div>
+          <div class="item-desc">
+            click to read a word
+            <br />
+            double-click to read a story
+          </div>
         </div>
-        <div class="item-desc">
-          hover over for noise
-          <br />
-          scroll to change the energy
+      </a>
+    </div>
+    <div class="item-wrapper">
+      <a href="/button">
+        <div class="item" style="background:mediumpurple;">
+          <div class="item-title">
+            cta
+          </div>
+          <div class="item-desc">
+            click the button
+            <br />
+            to unlock your dreams
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
-  <div class="item-wrapper">
-    <a href="/storytime">
-      <div class="item" style="background:lightsteelblue;">
-        <div class="item-title">
-          storytime
+      </a>
+    </div>
+    <div class="item-wrapper">
+      <a href="/information">
+        <div class="item" style="background:blueviolet;">
+          <div class="item-title">
+            information
+          </div>
+          <div class="item-desc">
+            type some thoughts
+            <br />
+            see quality related data
+          </div>
         </div>
-        <div class="item-desc">
-          click to read a word
-          <br />
-          double-click to read a story
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="item-wrapper">
-    <a href="/button">
-      <div class="item" style="background:mediumpurple;">
-        <div class="item-title">
-          cta
-        </div>
-        <div class="item-desc">
-          click the button
-          <br />
-          to unlock your dreams
-        </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </body>
 </html>
