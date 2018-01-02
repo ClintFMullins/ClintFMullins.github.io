@@ -80,11 +80,34 @@
       background: #adad76;
     }
 
+    .stars {
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+    .stars::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+      opacity: 0;
+      transition: opacity 10s ease-out;
+    }
+    .stars-night {
+      opacity: 0.3;
+    }
+
   </style>
 </head>
 <body>
   <div class="background">
     <div class="sky">
+      <div class="stars">
+      </div>
       <div class="moon">
         <div class="moon-shadow">
           <div class="moon-shadow">
@@ -113,21 +136,32 @@
       </div>
     </div>
     <div class="ground">
-      <div class="house">
-        <div class="roof">
-        </div>
-        <div class="box">
-        </div>
-      </div>
     </div>
   </div>
 </body>
 
   <script type="text/javascript">
+    function getRandom(max) {
+      return Math.random() * max;
+    }
     const skyElem = document.getElementsByClassName('sky')[0];
     const moonElem = document.getElementsByClassName('moon')[0];
     const groundElem = document.getElementsByClassName('ground')[0];
     const backgroundElem = document.getElementsByClassName('background')[0];
+    const starsElem = document.getElementsByClassName('stars')[0];
+
+    const addStars = (count) => {
+      let boxShadowValue = '';
+
+      boxShadowValue += `${getRandom(2000)}px ${getRandom(2000)}px #adad76`
+
+      for (let i = 2; i < count; i++) {
+        boxShadowValue += ` , ${getRandom(2000)}px ${getRandom(2000)}px #adad76`
+      }
+      return boxShadowValue;
+    }
+
+    starsElem.style.boxShadow = addStars(700);
 
     setTimeout(() => {
       skyElem.classList.add('sky-night');
