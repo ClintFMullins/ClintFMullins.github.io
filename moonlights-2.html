@@ -148,9 +148,9 @@
     }
 
     .writing-moon {
-      width: 100px;
-      height: 100px;
-      margin-left: -50px;
+      width: 200px;
+      height: 200px;
+      margin-left: -100px;
       border-radius: 100%;
       background: #adad76;
       top: -50%;
@@ -176,6 +176,7 @@
       border-radius: 4px;
       border-bottom-right-radius: 0px;
       border-bottom-left-radius: 0px;
+      background: #e4e4a1;
     }
 
     .writing-moon-input {
@@ -240,17 +241,17 @@
   </div>
   <div class="writing-moon-background"></div>
   <div class="writing-moon">
-    <textarea class="writing-moon-input" placeholder="How has being a Husband been going?"></textarea>
+    <textarea class="writing-moon-input" placeholder="How has being a Healthy Guy been going?"></textarea>
   </div>
   <div class="moonlights-list">
     <div class="moonlight-item">
-      Healthy
+      Healthy Guy
     </div>
     <div class="moonlight-item">
       UX Designer
     </div>
     <div class="moonlight-item">
-      Husband
+      Good Husband
     </div>
   </div>
 </body>
@@ -288,6 +289,7 @@
       groundElem.classList.add('ground-writing');
       moonlightsElem.classList.add('moonlights-list-writing');
       writingMoonElem.classList.add('writing-moon-writing-mid');
+      moonElem.classList.remove('moon-night');
 
       setTimeout(() => {
         writingMoonElem.classList.add('writing-moon-writing');
@@ -308,6 +310,7 @@
       setTimeout(() => {
         moonlightsElem.classList.remove('moonlights-list-writing');
         groundElem.classList.remove('ground-writing');
+        moonElem.classList.add('moon-night');
       }, 1000);
     }
 
