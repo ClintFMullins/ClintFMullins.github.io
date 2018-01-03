@@ -1,0 +1,331 @@
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    .background {
+      width: 100%;
+      height: 100%;
+      background: grey;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity .8s linear;
+    }
+
+    .background-night {
+      opacity: 1;
+    }
+
+    .sky {
+      position: absolute;
+      background-color: #00006b96;
+      width: 100%;
+      height: 100%;
+      transition: background-color 3s linear;
+    }
+
+    .sky-night {
+      background-color: #00006b;
+    }
+
+    .ground {
+      position: absolute;
+      background-color: #0c1713;
+      width: 200%;
+      margin-left: -50%;
+      height: 100%;
+      border-radius: 50%;
+      top: 65%;
+      transition: background-color 3s linear, margin-top 0.7s ease-in-out, height 0.7s ease-in-out, border-radius 0.3s ease-in-out;
+    }
+
+    .ground-night {
+      background-color: black;
+    }
+
+    .house {
+      position: absolute;
+      top: 65%;
+      left: 20%;
+      background: grey;
+    }
+
+    .moon {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      background: #adad76;
+      transition: top 6s ease-out;
+    }
+
+    .moon-night {
+      top: 10%;
+    }
+
+    .moon-shadow {
+      width: 150%;
+      height: 150%;
+      margin-left: -25%;
+      transform: translateY(-15%);
+      border-radius: 100%;
+      opacity: 0.65;
+      background: #adad76;
+    }
+
+    .stars {
+      width: 1px;
+      height: 1px;
+      background: transparent;
+    }
+    .stars::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      opacity: 0;
+      transition: opacity 10s ease-out;
+    }
+    .stars-night {
+      opacity: 0.3;
+    }
+
+    .moonlights-list {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      transition: top .3s ease-in-out;
+    }
+
+    .moonlight-item {
+      min-height: 100px;
+      width: 300px;
+      max-width: 95%;
+      margin-left: 15px;
+      margin-top: 15px;
+      color: antiquewhite;
+      font-family: helvetica;
+      font-size: 30px;
+      padding-top: 34px;
+      padding-left: 22px;
+      cursor: pointer;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 2s linear;
+    }
+
+    .moonlight-item-night {
+      opacity: .8;
+    }
+
+    .ground-writing {
+      border-radius: 0px;
+      margin-top: -100%;
+      height: 500%;
+    }
+
+    .moonlights-list-writing {
+      top: -400px;
+    }
+
+    .writing-moon {
+      width: 100px;
+      height: 100px;
+      margin-left: -50px;
+      border-radius: 100%;
+      background: #adad76;
+      top: -50%;
+      left: 50%;
+      z-index: 13;
+      position: absolute;
+      transition: top 2s ease-in-out;
+      padding: 20px;
+      padding-bottom: 0px;
+      overflow: hidden;
+    }
+
+    .writing-moon-writing-mid {
+      top: 50%;
+      transition: all .3s ease-in-out, top 2s ease-in-out;;
+    }
+
+    .writing-moon-writing {
+      top: 10%;
+      width: 700px;
+      height: 90%;
+      left: 50%;
+      margin-left: -350px;
+      border-radius: 4px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
+    .writing-moon-input {
+      border: none;
+      overflow: auto;
+      outline: none;
+      box-shadow: none;
+      background: none;
+      width: 100%;
+      height: 100%;
+      resize: none;
+      font-size: 20px;
+      line-height: 1.2;
+      display: none;
+    }
+
+    .writing-moon-background {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      z-index: 11;
+      display: none;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="sky">
+      <div class="stars">
+      </div>
+      <div class="moon">
+        <div class="moon-shadow">
+          <div class="moon-shadow">
+            <div class="moon-shadow">
+              <div class="moon-shadow">
+                <div class="moon-shadow">
+                  <div class="moon-shadow">
+                    <div class="moon-shadow">
+                      <div class="moon-shadow">
+                        <div class="moon-shadow">
+                          <div class="moon-shadow">
+                            <div class="moon-shadow">
+                              <div class="moon-shadow">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ground">
+    </div>
+  </div>
+  <div class="writing-moon-background"></div>
+  <div class="writing-moon">
+    <textarea class="writing-moon-input" placeholder="How has being a Husband been going?"></textarea>
+  </div>
+  <div class="moonlights-list">
+    <div class="moonlight-item">
+      Healthy
+    </div>
+    <div class="moonlight-item">
+      UX Designer
+    </div>
+    <div class="moonlight-item">
+      Husband
+    </div>
+  </div>
+</body>
+
+  <script type="text/javascript">
+    function getRandom(max) {
+      return Math.random() * max;
+    }
+    const goodColors = ['lightsteelblue', 'mediumpurple', 'DarkSlateBlue'];
+    const skyElem = document.getElementsByClassName('sky')[0];
+    const moonElem = document.getElementsByClassName('moon')[0];
+    const writingMoonElem = document.getElementsByClassName('writing-moon')[0];
+    const groundElem = document.getElementsByClassName('ground')[0];
+    const backgroundElem = document.getElementsByClassName('background')[0];
+    const starsElem = document.getElementsByClassName('stars')[0];
+    const moonlightsElements = document.getElementsByClassName('moonlight-item');
+    const moonlightsElem = document.getElementsByClassName('moonlights-list')[0];
+    const writingMoonInputElem = document.getElementsByClassName('writing-moon-input')[0];
+    const writingMoonBackgroundElem = document.getElementsByClassName('writing-moon-background')[0];
+
+    const addStars = (count) => {
+      let boxShadowValue = '';
+
+      boxShadowValue += `${getRandom(2000)}px ${getRandom(2000)}px #adad76`
+
+      for (let i = 2; i < count; i++) {
+        boxShadowValue += ` , ${getRandom(2000)}px ${getRandom(2000)}px #adad76`
+      }
+      return boxShadowValue;
+    }
+
+    starsElem.style.boxShadow = addStars(700);
+
+    const transitionToWriting = () => {
+      groundElem.classList.add('ground-writing');
+      moonlightsElem.classList.add('moonlights-list-writing');
+      writingMoonElem.classList.add('writing-moon-writing-mid');
+
+      setTimeout(() => {
+        writingMoonElem.classList.add('writing-moon-writing');
+        setTimeout(() => {
+          writingMoonInputElem.style.display = 'block';
+          writingMoonBackgroundElem.style.display = 'block';
+          writingMoonInputElem.focus();
+        }, 1000);
+      }, 1000);
+    }
+
+    const transitionBack = () => {
+      writingMoonElem.classList.remove('writing-moon-writing-mid');
+      writingMoonElem.classList.remove('writing-moon-writing');
+      writingMoonInputElem.style.display = 'none';
+      writingMoonBackgroundElem.style.display = 'none';
+
+      setTimeout(() => {
+        moonlightsElem.classList.remove('moonlights-list-writing');
+        groundElem.classList.remove('ground-writing');
+      }, 1000);
+    }
+
+    writingMoonBackgroundElem.addEventListener('click', transitionBack);
+
+    setTimeout(() => {
+      skyElem.classList.add('sky-night');
+      moonElem.classList.add('moon-night');
+      groundElem.classList.add('ground-night');
+      backgroundElem.classList.add('background-night');
+      for (let i = 0; i < moonlightsElements.length; i++) {
+        moonlightsElements[i].classList.add('moonlight-item-night');
+        moonlightsElements[i].style.backgroundColor = goodColors[i];
+        moonlightsElements[i].addEventListener('click', transitionToWriting)
+      }
+    }, 50);
+
+
+  </script>
+</html>
