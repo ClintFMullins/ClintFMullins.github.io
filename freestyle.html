@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>freestyle</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+  </head>
+  <body style="overflow:hidden;">
+    <div style="text-align: center; overflow:hidden;">
+        <div class="your-words" style="font-size: 67px; background: hsla(194, 100%, 20%, 1); padding: 10px;">Freestyle</div>
+        <div class="ryhme-words" style="font-size: 37px; background: hsla(213, 100%, 20%, 1); padding: 10px; height: 100vh;">Press Spacebar to record & get ryhmes</div>
+    </div>
+    <script type="text/javascript">
+      (function() {
+        function getRandomColorValue() {
+           return Math.floor(Math.random() * 360);
+        }
+
+        function getRandomSubarray(arr, size) {
+            return arr.slice(0, size); // not random anymore!
+            // var shuffled = arr.slice(0), i = arr.length, temp, index;
+            // while (i--) {
+            //     index = Math.floor((i + 1) * Math.random());
+            //     temp = shuffled[index];
+            //     shuffled[index] = shuffled[i];
+            //     shuffled[i] = temp;
+            // }
+            // return shuffled.slice(0, size);
+        }
+
+        const listOfColors = [getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue(), getRandomColorValue()];
+
+        const ryhmes = [];
+        const shittyRap = document.getElementsByClassName('your-words')[0];
+        const rhymeDump = document.getElementsByClassName('ryhme-words')[0];
+    
+        function showMyShittyWords(word, index) {
+            const colorVal = listOfColors[index];
+            return `<span style="color: hsla(${colorVal}, 100%, 50%, 1)">${word}</span>`;
+        }
+
+        function getRhymes(word, index) {
+            const colorVal = listOfColors[index];
+            fetch(`https://api.datamuse.com/words?rel_rhy=${word}`)
+                .then(response => {
+                    response.json().then((words) => {
+                        const subsetOfRhymes = getRandomSubarray(words, 10)
+                        rhymeDump.innerHTML += `<div style="color: hsla(${colorVal}, 100%, 50%, 1)">${subsetOfRhymes.map((item) => item.word.split(' ').join('-')).join(' ')}</div>`;
+                    });
+                })
+        }
+
+        try {
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            console.log(recognition)
+        } catch(e) {
+            console.error(e);
+        }
+
+        recognition.onresult = function(event) {
+            rhymeDump.innerHTML = "";
+            var current = event.resultIndex;
+            var transcript = event.results[current][0].transcript;
+            var eachWordSaid = transcript.split(' ');
+            shittyRap.innerHTML = eachWordSaid.map(showMyShittyWords).join(' ');
+            eachWordSaid.forEach(getRhymes);
+        }
+
+        document.body.onkeyup = function(e){
+            e.preventDefault();
+
+            if(e.keyCode == 32){
+                recognition.start();
+            }
+        }
+      })();
+    </script>
+  </body>
+</html>
